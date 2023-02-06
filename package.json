@@ -1,0 +1,58 @@
+{
+  "name": "copy-variable-console-log",
+  "displayName": "Copy Variable Console Log",
+  "description": "Copy a console log for a variable to the clipboard",
+  "version": "1.0.0",
+  "publisher": "mickmelon",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mickmelon/copy-variable-console-log"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.copyVariableConsoleLog",
+        "title": "Copy Variable Console Log"
+      }
+    ],
+    "menus": {
+      "editor/context": [{
+          "command": "extension.copyVariableConsoleLog",
+          "when": "editorTextFocus"
+      }]
+    },
+    "keybindings": [{
+      "command": "extension.copyVariableConsoleLog",
+      "key": "alt+ctrl+c",
+      "mac": "alt+cmd+c",
+      "when": "editorTextFocus"
+    }]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/glob": "^8.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.33.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.4",
+    "@vscode/test-electron": "^2.2.2"
+  }
+}
